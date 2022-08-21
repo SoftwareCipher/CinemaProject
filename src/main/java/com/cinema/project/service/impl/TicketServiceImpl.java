@@ -6,7 +6,7 @@ import java.util.List;
 public interface TicketServiceImpl {
     List<Ticket> getAllTickets();
 
-    void saveOrUpdateTicket(Ticket ticket);
+    Ticket saveOrUpdateTicket(Ticket ticket);
 
     Ticket getTicket(long id);
 

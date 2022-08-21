@@ -6,7 +6,7 @@ import java.util.List;
 public interface CinemaServiceImpl {
     List<Cinema> getAllCinemas();
 
-    void saveOrUpdateCinema(Cinema cinema);
+    Cinema saveOrUpdateCinema(Cinema cinema);
 
     Cinema getCinema(long id);
 

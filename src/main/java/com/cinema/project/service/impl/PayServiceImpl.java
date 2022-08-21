@@ -6,7 +6,7 @@ import java.util.List;
 public interface PayServiceImpl {
     List<Pay> getAllPays();
 
-    void saveOrUpdatePay(Pay pay);
+    Pay saveOrUpdatePay(Pay pay);
 
     Pay getPay(long id);
 

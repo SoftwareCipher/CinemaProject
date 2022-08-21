@@ -6,7 +6,7 @@ import java.util.List;
 public interface FilmServiceImpl {
     List<Film> getAllFilms();
 
-    void saveOrUpdateFilm(Film film);
+    Film saveOrUpdateFilm(Film film);
 
     Film getFilm(long id);
 

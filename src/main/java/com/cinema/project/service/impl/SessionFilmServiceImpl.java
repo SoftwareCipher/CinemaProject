@@ -6,7 +6,7 @@ import java.util.List;
 public interface SessionFilmServiceImpl {
     List<SessionFilm> getAllSessionFilms();
 
-    void saveOrUpdateSessionFilm(SessionFilm sessionFilm);
+    SessionFilm saveOrUpdateSessionFilm(SessionFilm sessionFilm);
 
     SessionFilm getSessionFilm(long id);
 

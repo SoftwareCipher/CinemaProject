@@ -19,21 +19,21 @@ class CinemaService implements CinemaServiceImpl {
 
     @Override
     public List<Cinema> getAllCinemas() {
-        return null;
+        return cinemaRepository.findAll();
     }
 
     @Override
-    public void saveOrUpdateCinema(Cinema cinema) {
-
+    public Cinema saveOrUpdateCinema(Cinema cinema) {
+        return cinemaRepository.save(cinema);
     }
 
     @Override
     public Cinema getCinema(long id) {
-        return null;
+        return cinemaRepository.getById(id);
     }
 
     @Override
     public void deleteCinema(long id) {
-
+        cinemaRepository.deleteById(id);
     }
 }

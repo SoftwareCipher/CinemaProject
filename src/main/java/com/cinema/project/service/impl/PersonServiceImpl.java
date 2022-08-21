@@ -6,7 +6,7 @@ import java.util.List;
 public interface PersonServiceImpl {
     List<Person> getAllPersons();
 
-    void saveOrUpdatePerson(Person person);
+    Person saveOrUpdatePerson(Person person);
 
     Person getPerson(long id);
 
