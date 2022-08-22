@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @ComponentScan(basePackages = "com.cinema.project")
-@EnableWebMvc
+//@EnableWebMvc
 @EnableTransactionManagement
 @EnableScheduling
 public class Config {

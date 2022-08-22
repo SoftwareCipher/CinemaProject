@@ -5,7 +5,9 @@ import com.cinema.project.repository.SessionFilmRepository;
 import com.cinema.project.service.impl.SessionFilmServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SessionFilmService implements SessionFilmServiceImpl {
@@ -24,12 +26,19 @@ public class SessionFilmService implements SessionFilmServiceImpl {
 
     @Override
     public SessionFilm saveOrUpdateSessionFilm(SessionFilm sessionFilm) {
-        return sessionFilmRepository.save(sessionFilm);
+        return sessionFilmRepository.saveAndFlush(sessionFilm);
     }
 
     @Override
     public SessionFilm getSessionFilm(long id) {
-        return sessionFilmRepository.getById(id);
+        SessionFilm sessionFilm = null;
+        Optional<SessionFilm> optional = sessionFilmRepository.findById(id);
+        if (optional.isPresent()) {
+            sessionFilm = optional.get();
+        } else {
+            System.out.println("Error! SessionFilm " + id + " not found!");
+        }
+        return sessionFilm;
     }
 
     @Override

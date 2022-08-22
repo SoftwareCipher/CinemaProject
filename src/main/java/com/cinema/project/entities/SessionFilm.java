@@ -3,8 +3,11 @@ package com.cinema.project.entities;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 
 @Getter
@@ -22,8 +25,8 @@ public class SessionFilm {
     private Long film;
     @Column(name = "cinema")
     private Long cinema;
-    @Column(name = "cinema")
-    private LocalDateTime localDateTime;
-    @Column(name = "cinema")
+    @Column(name = "time")
+    private String time;
+    @Column(name = "price")
     private int price;
 }

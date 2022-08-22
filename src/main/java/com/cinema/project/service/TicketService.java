@@ -5,7 +5,9 @@ import com.cinema.project.repository.TicketRepository;
 import com.cinema.project.service.impl.TicketServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TicketService implements TicketServiceImpl {
@@ -29,7 +31,14 @@ public class TicketService implements TicketServiceImpl {
 
     @Override
     public Ticket getTicket(long id) {
-        return ticketRepository.getById(id);
+        Ticket ticket = null;
+        Optional<Ticket> optional = ticketRepository.findById(id);
+        if (optional.isPresent()) {
+            ticket = optional.get();
+        } else {
+            System.out.println("Error! Ticket " + id + " not found!");
+        }
+        return ticket;
     }
 
     @Override

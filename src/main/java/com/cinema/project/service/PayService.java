@@ -6,6 +6,7 @@ import com.cinema.project.service.impl.PayServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PayService implements PayServiceImpl {
@@ -29,7 +30,14 @@ public class PayService implements PayServiceImpl {
 
     @Override
     public Pay getPay(long id) {
-        return payRepository.getById(id);
+        Pay pay = null;
+        Optional<Pay> optionalPay = payRepository.findById(id);
+        if(optionalPay.isPresent()){
+            pay = optionalPay.get();
+        }else{
+            System.out.println("Error! Pay " + id + " not found!");
+        }
+        return pay;
     }
 
     @Override

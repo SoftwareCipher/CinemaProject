@@ -6,6 +6,7 @@ import com.cinema.project.service.impl.FilmServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 class FilmService implements FilmServiceImpl {
@@ -29,7 +30,14 @@ class FilmService implements FilmServiceImpl {
 
     @Override
     public Film getFilm(long id) {
-        return repository.getById(id);
+        Film film = null;
+        Optional<Film> optional = repository.findById(id);
+        if(optional.isPresent()){
+            film = optional.get();
+        }else{
+            System.out.println("Error! Film " + id + " not found!");
+        }
+        return film;
     }
 
     @Override

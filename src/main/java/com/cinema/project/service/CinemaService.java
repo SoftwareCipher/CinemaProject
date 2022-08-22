@@ -5,7 +5,11 @@ import com.cinema.project.repository.CinemaRepository;
 import com.cinema.project.service.impl.CinemaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 class CinemaService implements CinemaServiceImpl {
@@ -29,7 +33,14 @@ class CinemaService implements CinemaServiceImpl {
 
     @Override
     public Cinema getCinema(long id) {
-        return cinemaRepository.getById(id);
+        Cinema cinema = null;
+        Optional<Cinema> optional = cinemaRepository.findById(id);
+        if(optional.isPresent()){
+            cinema = optional.get();
+        }else{
+            System.out.println("Error! Cinema " + id + " not found!");
+        }
+        return cinema;
     }
 
     @Override
