@@ -8,7 +8,11 @@ public interface TicketServiceImpl {
 
     Ticket saveOrUpdateTicket(Ticket ticket);
 
+    void updateTicket(Ticket ticket);
+
     Ticket getTicket(long id);
 
     void deleteTicket(long id);
+
+    Ticket seatOccupiedOrNo(int place);
 }

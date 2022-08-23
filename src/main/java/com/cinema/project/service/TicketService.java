@@ -6,6 +6,7 @@ import com.cinema.project.service.impl.TicketServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +27,21 @@ public class TicketService implements TicketServiceImpl {
 
     @Override
     public Ticket saveOrUpdateTicket(Ticket ticket) {
-        return ticketRepository.save(ticket);
+        ticket.setDateChange(LocalDateTime.now());
+        ticket.setDateCreation(LocalDateTime.now());
+        ticket.setStatus("New");
+        if(seatOccupiedOrNo(ticket.getPlace()) != null){
+            System.out.println("Error! This Place is busy");
+        }else{
+            return ticketRepository.save(ticket);
+        }
+        return null;
+    }
+
+    @Override
+    public void updateTicket(Ticket ticket) {
+        ticket.setDateChange(LocalDateTime.now());
+        ticketRepository.save(ticket);
     }
 
     @Override
@@ -44,5 +59,10 @@ public class TicketService implements TicketServiceImpl {
     @Override
     public void deleteTicket(long id) {
         ticketRepository.deleteById(id);
+    }
+
+    @Override
+    public Ticket seatOccupiedOrNo(int place) {
+        return ticketRepository.seatOccupiedOrNo(place);
     }
 }
