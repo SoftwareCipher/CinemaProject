@@ -1,6 +1,5 @@
 package com.cinema.project.service.logic;
 
-
 import com.cinema.project.entities.Pay;
 import com.cinema.project.entities.Ticket;
 import com.cinema.project.service.PayService;
@@ -10,7 +9,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class AutomaticCreation {
@@ -45,5 +43,4 @@ public class AutomaticCreation {
         pay.setStatus("new");
         return pay;
     }
-
 }
