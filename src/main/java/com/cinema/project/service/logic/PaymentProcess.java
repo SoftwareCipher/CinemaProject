@@ -24,7 +24,7 @@ public class PaymentProcess {
         this.payService = payService;
     }
 
-    @Scheduled(fixedRate = 2000)
+    @Scheduled(fixedRate = 5000)
     public void checkNewPayment() {
         List<Pay> payList = payService.getAllPays();
         for (long i = numberPay; i <= payList.size(); i++) {
@@ -38,7 +38,7 @@ public class PaymentProcess {
         }
     }
 
-    @Scheduled(fixedRate = 2000)
+    @Scheduled(fixedRate = 5000)
     public void ticketStatus() {
         List<Ticket> ticketList = ticketService.getAllTickets();
         for (long i = numberTicket; i <= ticketList.size(); i++) {

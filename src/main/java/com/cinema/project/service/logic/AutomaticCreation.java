@@ -21,7 +21,7 @@ public class AutomaticCreation {
         this.payService = payService;
     }
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 2000)
     public void createTicket() {
         List<Ticket> ticketList = ticketService.getAllTickets();
         for (int i = 0; i < ticketList.size(); i++) {
