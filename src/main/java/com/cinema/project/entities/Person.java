@@ -19,6 +19,8 @@ public class Person {
     private String fio;
     @Column(name = "email")
     private String email;
+    @Column(name = "card")
+    private Long card;
     @Column(name = "phone")
     private Long phone;
 }

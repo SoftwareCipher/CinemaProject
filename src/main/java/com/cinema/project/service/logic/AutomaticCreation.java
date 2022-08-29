@@ -27,7 +27,7 @@ public class AutomaticCreation {
         for (int i = 0; i < ticketList.size(); i++) {
             Ticket ticket = ticketList.get(i);
             if (ticket.getStatus().equals("New")) {
-                Pay pay = createPayment();
+                Pay pay = createPayment(ticket.getPerson());
                 payService.saveOrUpdatePay(pay);
                 ticket.setPaymentCode(pay.getPaymentCode());
                 ticket.setStatus("Making a payment");
@@ -36,10 +36,10 @@ public class AutomaticCreation {
         }
     }
 
-    public Pay createPayment() {
+    public Pay createPayment(Long person) {
         Pay pay = new Pay();
         pay.setSumma(200);
-        pay.setCard(12345346L);
+        pay.setCard(person);
         pay.setStatus("new");
         return pay;
     }
