@@ -16,7 +16,8 @@ public class AutomaticCreation {
     PayService payService;
 
     @Autowired
-    public AutomaticCreation(TicketService ticketService, PayService payService) {
+    public AutomaticCreation(TicketService ticketService,
+                             PayService payService) {
         this.ticketService = ticketService;
         this.payService = payService;
     }

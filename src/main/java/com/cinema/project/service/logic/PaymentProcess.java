@@ -19,7 +19,8 @@ public class PaymentProcess {
     private long numberTicket = 1;
 
     @Autowired
-    public PaymentProcess(TicketService ticketService, PayService payService) {
+    public PaymentProcess(TicketService ticketService,
+                          PayService payService) {
         this.ticketService = ticketService;
         this.payService = payService;
     }
