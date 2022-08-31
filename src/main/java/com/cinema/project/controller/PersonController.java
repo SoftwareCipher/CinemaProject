@@ -30,6 +30,13 @@ public class PersonController {
         return "personList";
     }
 
+    @GetMapping("/personList")
+    public String List(Model model) {
+        model.addAttribute("persons", personService.getAllPersons());
+        return "personList";
+    }
+
+
     @GetMapping("/person/{id}")
     public Person getPerson(@PathVariable long id){
         return personService.getPerson(id);
