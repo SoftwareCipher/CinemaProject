@@ -11,10 +11,10 @@
 <div>
     <table border="1">
         <tr>
-            <th>First fio</th>
-            <th>Last email</th>
-            <th>Last card</th>
-            <th>Last phone</th>
+            <th>fio</th>
+            <th>email</th>
+            <th>card</th>
+            <th>phone</th>
         </tr>
         <tr th:each="person : ${persons}">
             <td th:utext="${person.fio}"></td>
